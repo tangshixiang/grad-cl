@@ -1,0 +1,7 @@
+MY_PYTHON="srun -p VI_Face_1080TI --mpi=pmi2 --gres=gpu:1 -n1 --ntasks-per-node=1 --job-name=Hello --kill-on-bad-exit=1 python"
+MNIST_ROTA="--n_layers 2 --n_hiddens 100 --data_path data/ --save_path results/ --batch_size 10 --log_every 100 --samples_per_task 1000 --data_file mnist_rotations.pt    --cuda yes"
+MNIST_PERM="--n_layers 2 --n_hiddens 100 --data_path data/ --save_path results/ --batch_size 10 --log_every 100 --samples_per_task 1000 --data_file mnist_permutations.pt --cuda yes"
+CIFAR_100i="--n_layers 2 --n_hiddens 100 --data_path data/ --save_path results/ --batch_size 10 --log_every 100 --samples_per_task 2500 --data_file cifar100.pt           --cuda yes"
+CIFAR_10i="--n_layers 2 --n_hiddens 100 --data_path data/ --save_path results/ --batch_size 10 --log_every 100 --samples_per_task 2500 --data_file cifar10.pt           --cuda yes"
+TinyImageNet="--n_layers 2 --n_hiddens 100 --data_path data/ --save_path results/ --batch_size 20 --log_every 100 --samples_per_task 2500 --data_file tiny-imagenet-200.pt           --cuda yes"
+WHOLE_CIFAR_100i="--n_layers 2 --n_hiddens 100 --data_path data/ --save_path results/ --batch_size 10 --log_every 100 --samples_per_task 2500 --data_file whole_cifar100.pt           --cuda yes"
