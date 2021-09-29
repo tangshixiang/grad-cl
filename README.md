@@ -3,7 +3,7 @@
 code for Layerwise Gradient Decomposition for Continual Learning
 
 # Usage
-Acknowledgement: We borrow codes from https://github.com/facebookresearch/GradientEpisodicMemory. Please install dependencies from https://github.com/facebookresearch/GradientEpisodicMemory.
+Acknowledgement: We borrow codes from https://github.com/facebookresearch/GradientEpisodicMemory. Please install dependencies from https://github.com/facebookresearch/GradientEpisodicMemory. Logs are saved at results/
 
 Register enviromental variables.
 ###
