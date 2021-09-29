@@ -50,7 +50,7 @@ model "iCARL"
 $MY_PYTHON main.py $CIFAR_100i --model icarl --lr 1.0 --n_memories 1280 --memory_strength 1 --seed 0
 ```
 
-# model "GEM"
+model "GEM"
 ```
 $MY_PYTHON main.py $MNIST_ROTA --model gem --lr 0.1 --n_memories 256 --memory_strength 0.5 --seed 0&
 $MY_PYTHON main.py $MNIST_PERM --model gem --lr 0.1 --n_memories 256 --memory_strength 0.5 --seed 0&
@@ -58,12 +58,12 @@ $MY_PYTHON main.py $CIFAR_100i --model gem --lr 0.1 --n_memories 256 --memory_st
 $MY_PYTHON main.py $TinyImageNet --model gem --lr 0.01 --n_memories 256 --memory_strength 0.5 --seed 0
 ```
 
-# model "SGEM"
+model "SGEM"
 ```
 $MY_PYTHON main.py $CIFAR_100i --model gem --lr 0.1 --n_memories 256 --memory_strength 0.5 --seed 0
 ```
 
-# model "Our model"
+model "Our model"
 ```
 $MY_PYTHON main.py $CIFAR_100i --model newblockgem_group5_pca3_partmargin.py --lr 0.1 --n_memories 256 --memory_strength 0.5 --seed 0
 ```
