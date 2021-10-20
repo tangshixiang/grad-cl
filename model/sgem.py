@@ -162,7 +162,7 @@ class Net(nn.Module):
                 output[:, offset2:self.n_outputs].data.fill_(-10e10)
         return output
 
-    def observe(self, x, t, y):
+    def observe(self, x, t, y, ep):
         # update memory
         if t != self.old_task:
             self.observed_tasks.append(t)
@@ -214,7 +214,8 @@ class Net(nn.Module):
             indx = torch.cuda.LongTensor(self.observed_tasks[:-1]) if self.gpu \
                 else torch.LongTensor(self.observed_tasks[:-1])
             random_indx = np.random.randint(len(self.observed_tasks[:-1]))
-
+            if len(self.observed_tasks) == 3:
+                import pdb; pdb.set_trace()
             indx = indx.index_select(0,
                                      torch.Tensor([random_indx]).cuda().long())
             dotp = torch.mm(self.grads[:, t].unsqueeze(0),

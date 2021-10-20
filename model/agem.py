@@ -236,13 +236,19 @@ class Net(nn.Module):
             store_grad(self.parameters, self.grads, self.grad_dims, t)
             indx = torch.cuda.LongTensor(self.observed_tasks[:-1]) if self.gpu \
                 else torch.LongTensor(self.observed_tasks[:-1])
+            # import pdb; pdb.set_trace()
+            average_grad = self.grads.index_select(1, indx).mean(dim=1, keepdim=True)
 
             dotp = torch.mm(self.grads[:, t].unsqueeze(0),
-                            self.grads.index_select(1, indx))
+                            average_grad)
 
+            # dotp = torch.mm(self.grads[:, t].unsqueeze(0),
+            #                 self.grads.index_select(1, indx))
             if (dotp < 0).sum() != 0:
+                # project2cone2(self.grads[:, t].unsqueeze(1),
+                #               self.grads.index_select(1, indx), self.margin)
                 project2cone2(self.grads[:, t].unsqueeze(1),
-                              self.grads.index_select(1, indx), self.margin)
+                              average_grad, self.margin)
                 # copy gradients back
                 overwrite_grad(self.parameters, self.grads[:, t],
                                self.grad_dims)
