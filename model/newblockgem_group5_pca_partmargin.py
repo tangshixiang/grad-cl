@@ -236,7 +236,7 @@ class Net(nn.Module):
                 output[:, offset2:self.n_outputs].data.fill_(-10e10)
         return output
 
-    def observe(self, x, t, y):
+    def observe(self, x, t, y, ep):
         # update memory
         if t != self.old_task:
             self.observed_tasks.append(t)
@@ -310,14 +310,12 @@ class Net(nn.Module):
                 # dotp = torch.mm(self.grads[:, t].unsqueeze(0),
                 #                 self.grads.index_select(1, indx))
 
-                # if (dotp < 0).sum() != 0:
-                if True:
-                    project5cone5(
-                        self.grads[:, t].unsqueeze(1),
-                        self.grads.index_select(1, indx),
-                        beg,
-                        en,
-                        margin=self.margin)
+                project5cone5(
+                    self.grads[:, t].unsqueeze(1),
+                    self.grads.index_select(1, indx),
+                    beg,
+                    en,
+                    margin=self.margin)
             # copy gradients back
             overwrite_grad(self.parameters, self.grads[:, t], self.grad_dims)
         self.opt.step()
