@@ -236,7 +236,7 @@ class Net(nn.Module):
                 output[:, offset2:self.n_outputs].data.fill_(-10e10)
         return output
 
-    def observe(self, x, t, y):
+    def observe(self, x, t, y, ep):
         # update memory
         if t != self.old_task:
             self.observed_tasks.append(t)
