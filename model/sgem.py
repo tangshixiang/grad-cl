@@ -214,8 +214,6 @@ class Net(nn.Module):
             indx = torch.cuda.LongTensor(self.observed_tasks[:-1]) if self.gpu \
                 else torch.LongTensor(self.observed_tasks[:-1])
             random_indx = np.random.randint(len(self.observed_tasks[:-1]))
-            if len(self.observed_tasks) == 3:
-                import pdb; pdb.set_trace()
             indx = indx.index_select(0,
                                      torch.Tensor([random_indx]).cuda().long())
             dotp = torch.mm(self.grads[:, t].unsqueeze(0),
