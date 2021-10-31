@@ -1,6 +1,6 @@
 # grad-cl
 
-code for Layerwise Gradient Decomposition for Continual Learning
+code for layerwise optimization by gradient decomposition for continual learning
 
 # Usage
 Acknowledgement: We borrow codes from https://github.com/facebookresearch/GradientEpisodicMemory. Please install dependencies from https://github.com/facebookresearch/GradientEpisodicMemory. Logs are saved at results/
