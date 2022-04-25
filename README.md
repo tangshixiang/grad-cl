@@ -17,7 +17,7 @@ single model
 $MY_PYTHON main.py $MNIST_ROTA --model gem --lr 0.1 --n_memories 256 --memory_strength 0.5 --seed 0
 $MY_PYTHON main.py $MNIST_PERM --model single --lr 0.03 --seed 0 
 $MY_PYTHON main.py $CIFAR_100i --model single --lr 1.0 --seed 0
-$MY_PYTHON main.py $TinyImageNet --model single --lr 0.01 --seed 0
+$MY_PYTHON main.py $TinyImageNet --model single_nopretrain --lr 0.01 --seed 0
 ```
 
 independent
