@@ -55,12 +55,12 @@ model "GEM"
 $MY_PYTHON main.py $MNIST_ROTA --model gem --lr 0.1 --n_memories 256 --memory_strength 0.5 --seed 0&
 $MY_PYTHON main.py $MNIST_PERM --model gem --lr 0.1 --n_memories 256 --memory_strength 0.5 --seed 0&
 $MY_PYTHON main.py $CIFAR_100i --model gem --lr 0.1 --n_memories 256 --memory_strength 0.5 --seed 0&
-$MY_PYTHON main.py $TinyImageNet --model gem --lr 0.01 --n_memories 256 --memory_strength 0.5 --seed 0
+$MY_PYTHON main.py $TinyImageNet --model gem_nopretrain --lr 0.01 --n_memories 256 --memory_strength 0.5 --seed 0
 ```
 
 model "SGEM"
 ```
-$MY_PYTHON main.py $CIFAR_100i --model gem --lr 0.1 --n_memories 256 --memory_strength 0.5 --seed 0
+$MY_PYTHON main.py $CIFAR_100i --model sgem --lr 0.1 --n_memories 256 --memory_strength 0.5 --seed 0
 ```
 
 model "Our model"
